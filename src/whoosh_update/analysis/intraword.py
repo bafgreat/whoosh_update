@@ -46,7 +46,7 @@ class CompoundWordFilter(Filter):
     compound word in the token stream along with the word segments.
 
     >>> cwf = CompoundWordFilter(wordset, keep_compound=True)
-    >>> analyzer = RegexTokenizer(r"\S+") | cwf
+    >>> analyzer = RegexTokenizer(r"\\S+") | cwf
     >>> [t.text for t in analyzer("I do not like greeneggs and ham")
     ["I", "do", "not", "like", "greeneggs", "green", "eggs", "and", "ham"]
     >>> cwf.keep_compound = False
@@ -272,7 +272,7 @@ class IntraWordFilter(Filter):
     >>> iwf_i = IntraWordFilter(mergewords=True, mergenums=True)
     >>> iwf_q = IntraWordFilter(mergewords=False, mergenums=False)
     >>> iwf = MultiFilter(index=iwf_i, query=iwf_q)
-    >>> analyzer = RegexTokenizer(r"\S+") | iwf | LowercaseFilter()
+    >>> analyzer = RegexTokenizer(r"\\S+") | iwf | LowercaseFilter()
 
     (See :class:`MultiFilter`.)
     """

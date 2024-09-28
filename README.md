@@ -18,7 +18,7 @@ Some of Whoosh's features include:
 * Pluggable scoring algorithm (including BM25F), text analysis, storage,
   posting format, etc.
 * Powerful query language.
-* Pure Python spell-checker (as far as I know, the only one). 
+* Pure Python spell-checker (as far as I know, the only one).
 
 Whoosh might be useful in the following circumstances:
 
@@ -27,7 +27,7 @@ Whoosh might be useful in the following circumstances:
 * As a research platform (at least for programmers that find Python easier to
   read and work with than Java ;)
 * When an easy-to-use Pythonic interface is more important to you than raw
-  speed. 
+  speed.
 
 Whoosh was created and is maintained by Matt Chaput. It was originally created
 for use in the online help system of Side Effects Software's 3D animation
@@ -40,14 +40,18 @@ clause" or "FreeBSD") license. See LICENSE.txt for information.
 Installing Whoosh
 =================
 
+
+pipy
+=======
+
 If you have ``setuptools`` or ``pip`` installed, you can use ``easy_install``
 or ``pip`` to download and install Whoosh automatically::
 
-    $ easy_install Whoosh
+    $ easy_install whoosh_update
 
     or
 
-    $ pip install Whoosh
+    $ pip install whoosh_update
 
 Learning more
 =============
