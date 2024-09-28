@@ -1,11 +1,11 @@
 from __future__ import with_statement
 
-from whoosh import analysis, fields, formats
-from whoosh.compat import u, xrange, permutations
-from whoosh.filedb.filestore import RamStorage
-from whoosh.query import spans
-from whoosh.query import And, Or, Term, Phrase
-from whoosh.util.testing import TempIndex
+from whoosh_update import analysis, fields, formats
+from whoosh_update.compat import u, xrange, permutations
+from whoosh_update.filedb.filestore import RamStorage
+from whoosh_update.query import spans
+from whoosh_update.query import And, Or, Term, Phrase
+from whoosh_update.util.testing import TempIndex
 
 
 domain = ("alfa", "bravo", "bravo", "charlie", "delta", "echo")
@@ -211,7 +211,7 @@ def test_span_near_tree():
     w.commit()
 
     nq1 = spans.SpanNear(Term("text", "lucene"), Term("text", "doug"), slop=5)
-    nq2 = spans.SpanNear(nq1, Term("text", "whoosh"), slop=4)
+    nq2 = spans.SpanNear(nq1, Term("text", "whoosh_update"), slop=4)
 
     with ix.searcher() as s:
         m = nq2.matcher(s)

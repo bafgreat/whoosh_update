@@ -5,12 +5,12 @@ from datetime import datetime
 
 import pytest
 
-from whoosh import analysis, fields, index, qparser, query, __version__
-from whoosh.compat import b, u, xrange, text_type, permutations
-from whoosh.filedb.filestore import RamStorage
-from whoosh.writing import IndexingError
-from whoosh.util.numeric import length_to_byte, byte_to_length
-from whoosh.util.testing import TempIndex, TempStorage
+from whoosh_update import analysis, fields, index, qparser, query, __version__
+from whoosh_update.compat import b, u, xrange, text_type, permutations
+from whoosh_update.filedb.filestore import RamStorage
+from whoosh_update.writing import IndexingError
+from whoosh_update.util.numeric import length_to_byte, byte_to_length
+from whoosh_update.util.testing import TempIndex, TempStorage
 
 
 def test_creation():

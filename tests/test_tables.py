@@ -3,11 +3,11 @@
 from __future__ import with_statement
 import random
 
-from whoosh.compat import b, xrange, iteritems
-from whoosh.filedb.filestore import RamStorage
-from whoosh.filedb.filetables import HashReader, HashWriter
-from whoosh.filedb.filetables import OrderedHashWriter, OrderedHashReader
-from whoosh.util.testing import TempStorage
+from whoosh_update.compat import b, xrange, iteritems
+from whoosh_update.filedb.filestore import RamStorage
+from whoosh_update.filedb.filetables import HashReader, HashWriter
+from whoosh_update.filedb.filetables import OrderedHashWriter, OrderedHashReader
+from whoosh_update.util.testing import TempStorage
 
 
 def test_hash_single():
@@ -176,7 +176,7 @@ def test_extras():
 
 
 def test_checksum_file():
-    from whoosh.filedb.structfile import ChecksumFile
+    from whoosh_update.filedb.structfile import ChecksumFile
     from zlib import crc32
 
     def wr(f):

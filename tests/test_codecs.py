@@ -4,12 +4,12 @@ from array import array
 
 import pytest
 
-from whoosh import analysis, fields, formats, query
-from whoosh.compat import u, b, text_type
-from whoosh.compat import array_tobytes, xrange
-from whoosh.codec import default_codec
-from whoosh.filedb.filestore import RamStorage
-from whoosh.util.testing import TempStorage
+from whoosh_update import analysis, fields, formats, query
+from whoosh_update.compat import u, b, text_type
+from whoosh_update.compat import array_tobytes, xrange
+from whoosh_update.codec import default_codec
+from whoosh_update.filedb.filestore import RamStorage
+from whoosh_update.util.testing import TempStorage
 
 
 def _make_codec(**kwargs):
@@ -451,7 +451,7 @@ def test_skip():
 #
 #
 # def test_special_spelled_field():
-#     from whoosh.analysis import StemmingAnalyzer
+#     from whoosh_update.analysis import StemmingAnalyzer
 #
 #     field = fields.TEXT(analyzer=StemmingAnalyzer(), spelling=True)
 #     st, codec, seg = _make_codec()
@@ -478,8 +478,8 @@ def test_skip():
 
 def test_plaintext_codec():
     pytest.importorskip("ast")
-    from whoosh.codec.plaintext import PlainTextCodec
-    from whoosh.codec.whoosh3 import W3Codec
+    from whoosh_update.codec.plaintext import PlainTextCodec
+    from whoosh_update.codec.whoosh3 import W3Codec
 
     ana = analysis.StemmingAnalyzer()
     schema = fields.Schema(a=fields.TEXT(vector=True, sortable=True),
@@ -550,8 +550,8 @@ def test_plaintext_codec():
 
 
 def test_memory_codec():
-    from whoosh.codec import memory
-    from whoosh.searching import Searcher
+    from whoosh_update.codec import memory
+    from whoosh_update.searching import Searcher
 
     ana = analysis.StemmingAnalyzer()
     schema = fields.Schema(a=fields.TEXT(vector=True),
@@ -599,7 +599,7 @@ def test_memory_codec():
 
 
 def test_memory_multiwrite():
-    from whoosh.codec import memory
+    from whoosh_update.codec import memory
 
     domain = ["alfa bravo charlie delta",
               "bravo charlie delta echo",

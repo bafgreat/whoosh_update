@@ -1,11 +1,11 @@
 from __future__ import with_statement
 import gzip
 
-from whoosh import analysis, fields, highlight, query, spelling
-from whoosh.compat import u
-from whoosh.qparser import QueryParser
-from whoosh.support.levenshtein import levenshtein
-from whoosh.util.testing import TempIndex
+from whoosh_update import analysis, fields, highlight, query, spelling
+from whoosh_update.compat import u
+from whoosh_update.qparser import QueryParser
+from whoosh_update.support.levenshtein import levenshtein
+from whoosh_update.util.testing import TempIndex
 
 
 _wordlist = sorted(u("render animation animate shader shading zebra koala"
@@ -268,7 +268,7 @@ def test_prefix_address():
 
 
 def test_correct_correct():
-    from whoosh import qparser
+    from whoosh_update import qparser
 
     schema = fields.Schema(a=fields.TEXT())
     with TempIndex(schema) as ix:
@@ -323,7 +323,7 @@ def test_very_long_words():
 #         assert not r.has_word_graph("text1")
 #         assert not r.has_word_graph("text2")
 #
-#     from whoosh.writing import add_spelling
+#     from whoosh_update.writing import add_spelling
 #     add_spelling(ix, ["text1", "text2"])
 #
 #     with ix.reader() as r:

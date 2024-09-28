@@ -1,13 +1,13 @@
 from __future__ import with_statement
 import inspect, random, sys
 
-from whoosh import columns, fields, query
-from whoosh.codec.whoosh3 import W3Codec
-from whoosh.compat import b, u, BytesIO, bytes_type, text_type
-from whoosh.compat import izip, xrange, dumps, loads
-from whoosh.filedb import compound
-from whoosh.filedb.filestore import RamStorage
-from whoosh.util.testing import TempIndex, TempStorage
+from whoosh_update import columns, fields, query
+from whoosh_update.codec.whoosh3 import W3Codec
+from whoosh_update.compat import b, u, BytesIO, bytes_type, text_type
+from whoosh_update.compat import izip, xrange, dumps, loads
+from whoosh_update.filedb import compound
+from whoosh_update.filedb.filestore import RamStorage
+from whoosh_update.util.testing import TempIndex, TempStorage
 
 
 def test_pickleability():

@@ -4,10 +4,10 @@ from __future__ import with_statement
 
 import pytest
 
-from whoosh import analysis, highlight, fields, qparser, query
-from whoosh.compat import u
-from whoosh.filedb.filestore import RamStorage
-from whoosh.util.testing import TempIndex
+from whoosh_update import analysis, highlight, fields, qparser, query
+from whoosh_update.compat import u
+from whoosh_update.filedb.filestore import RamStorage
+from whoosh_update.util.testing import TempIndex
 
 _doc = u("alfa bravo charlie delta echo foxtrot golf hotel india juliet " +
          "kilo lima")

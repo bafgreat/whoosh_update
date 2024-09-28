@@ -1,3 +1,6 @@
 *.pyc
 __pycache__/
 .tox/
+.pyenv/
+poetry.lock
+.history

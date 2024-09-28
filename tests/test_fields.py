@@ -3,11 +3,11 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from whoosh import fields, qparser, query
-from whoosh.compat import u, b, xrange
-from whoosh.filedb.filestore import RamStorage
-from whoosh.util import times
-from whoosh.util.testing import TempIndex
+from whoosh_update import fields, qparser, query
+from whoosh_update.compat import u, b, xrange
+from whoosh_update.filedb.filestore import RamStorage
+from whoosh_update.util import times
+from whoosh_update.util.testing import TempIndex
 
 
 def test_schema_eq():
@@ -604,7 +604,7 @@ def test_missing_field():
 
 
 def test_token_boost():
-    from whoosh.analysis import RegexTokenizer, DoubleMetaphoneFilter
+    from whoosh_update.analysis import RegexTokenizer, DoubleMetaphoneFilter
     ana = RegexTokenizer() | DoubleMetaphoneFilter()
     field = fields.TEXT(analyzer=ana, phrase=False)
     results = sorted(field.index(u("spruce view")))
@@ -625,9 +625,9 @@ def test_pickle_idlist():
 
 
 def test_pickle_schema():
-    from whoosh import analysis
-    from whoosh.support.charset import accent_map
-    from whoosh.compat import dumps
+    from whoosh_update import analysis
+    from whoosh_update.support.charset import accent_map
+    from whoosh_update.compat import dumps
 
     freetext_analyzer = (
         analysis.StemmingAnalyzer() |

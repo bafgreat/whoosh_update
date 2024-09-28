@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "whoosh_update"
+version = "0.1.0"
+description = "Updated version of Whoosh with Python 3.9+ support"
+authors = ["Dinga Wonanke <bafgreat@gmail.com>"]
+readme = "README.md"
+# license = "BSD-2-Clause"
+keywords = ["index", "search", "text", "spell"]
+homepage = "http://bitbucket.org/mchaput/whoosh"
+repository = "https://github.com/your-repo/whoosh-update"
+documentation = "http://your-docs-link"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.14"
+cached-property = "^1.5.2"
+
+# Adding compatible version constraints for Sphinx and docutils
+sphinx = "<8.0"  # Using Sphinx version below 8.0
+sphinx-rtd-theme = "^1.3.0"  # Keep using this theme version
+docutils = "<0.19"  # docutils version compatible with sphinx-rtd-theme
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0"
+pytest-pep8 = "^1.0.6"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "-rs --tb=native"
+norecursedirs = [".hg", ".tox", "_build", "tmp*", "env*", "benchmark", "stress"]
+minversion = "2.0"
+python_files = ["test_*.py"]
+pep8ignore = """
+ *.py E121 E122 E123 E124 E125 E126 E127 E128
+ *.py E401
+ *.py W391
+ test_*.py E501
+ upload.py ALL
+ docs/source/conf.py ALL
+ src/whoosh/lang/*.py ALL
+ src/whoosh/lang/snowball/*.py ALL
+ src/whoosh/support/relativedelta.py ALL
+ src/whoosh/support/charset.py ALL
+ src/whoosh/support/unicode.py ALL
+"""
+
+[tool.tox]
+envlist = ["py39", "py310", "py311", "py312", "py313"]
+
+[testenv]
+deps = ["pytest", "pytest-pep8"]
+commands = ["pytest -s {posargs} tests"]
+
+[scripts]
+build_docs = "sphinx-build -b html docs/source docs/build"
+push_docs = "sphinx-build -b html docs/source docs/build && upload_sphinx docs/build/html"
